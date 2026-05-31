@@ -7,7 +7,7 @@ def is_running_tests():
 
 setup_requires = []
 
-if is_running_tests:
+if is_running_tests():
     setup_requires.append('pytest-runner')
 
 DESCRIPTION = (
@@ -31,6 +31,7 @@ setup(
         'requests',
         'six>=1.10.0',
     ],
+    python_requires='>=3.9',
     tests_require=[
         'pytest',
         'pytest-cov',
@@ -44,13 +45,7 @@ setup(
         'License :: OSI Approved :: Apache Software License',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.5',
-        'Programming Language :: Python :: 2.6',
-        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.9',
     ]
 )
