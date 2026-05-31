@@ -1,14 +1,4 @@
-import sys
-
 from setuptools import setup, find_packages
-
-def is_running_tests():
-    return {'pytest', 'test', 'ptr'}.intersection(sys.argv)
-
-setup_requires = []
-
-if is_running_tests():
-    setup_requires.append('pytest-runner')
 
 DESCRIPTION = (
     'Python library for interacting with the Patreon API. '
@@ -26,17 +16,18 @@ setup(
     packages=find_packages(
         exclude=['examples', 'examples.*', 'test', 'test.*']
     ),
-    setup_requires=setup_requires,
     install_requires=[
         'requests',
         'six>=1.10.0',
     ],
     python_requires='>=3.9',
-    tests_require=[
+    extras_require={
+        'test': [
         'pytest',
         'pytest-cov',
         'mock',
-    ],
+        ],
+    },
     zip_safe=True,
     classifiers=[
         'Development Status :: 5 - Production/Stable',
